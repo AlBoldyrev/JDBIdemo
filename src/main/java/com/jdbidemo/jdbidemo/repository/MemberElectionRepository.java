@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @RegisterBeanMapper(MemberElection.class)
 public interface MemberElectionRepository {
 
-    @SqlQuery("Select * from member_election where mel_num=:id")
+    @SqlQuery("Select * from Member_Election where mel_num=:id")
     MemberElection findById(@Bind long id);
 
 }

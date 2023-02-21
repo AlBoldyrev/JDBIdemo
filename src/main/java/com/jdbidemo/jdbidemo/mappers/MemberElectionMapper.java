@@ -16,7 +16,7 @@ public class MemberElectionMapper implements RowMapper<MemberElection> {
         final MemberElection memberElection = new MemberElection();
         memberElection.setMemberElectionId(resultSet.getLong("melNum"));
         memberElection.setPayMemberCompanyId(resultSet.getLong("melPmcNum"));
-        memberElection.setMemberElectionId(resultSet.getLong("melEdNum"));
+        memberElection.setElectionDimId(resultSet.getLong("melEdNum"));
         memberElection.setSubgroupId(resultSet.getLong("melPuNum"));
         memberElection.setEffectiveStartDate(resultSet.getDate("melEffStartDt"));
         memberElection.setEffectiveEndDate(resultSet.getDate("melEffEndDt"));
