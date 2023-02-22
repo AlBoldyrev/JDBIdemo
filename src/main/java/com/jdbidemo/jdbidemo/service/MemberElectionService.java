@@ -18,4 +18,8 @@ public class MemberElectionService {
         return memberElection;
     }
 
+    public Long save(MemberElection memberElection) {
+        return memberElectionRepository.save(memberElection);
+    }
+
 }

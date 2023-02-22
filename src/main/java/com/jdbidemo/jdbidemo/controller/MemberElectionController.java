@@ -5,10 +5,7 @@ import com.jdbidemo.jdbidemo.model.MemberElection;
 import com.jdbidemo.jdbidemo.service.MemberElectionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/memberelection")
@@ -27,6 +24,12 @@ public class MemberElectionController {
         System.out.println("___________________" + e.getCreatedAt());
         return new ResponseEntity<>(e, HttpStatus.OK);
     }
+
+    @PostMapping()
+    public ResponseEntity<Long> createMemberElection(@RequestBody MemberElection memberElection) {
+        return new ResponseEntity<>(memberElectionService.save(memberElection), HttpStatus.CREATED);
+    }
+
 
     @GetMapping(value = "/health")
     public ResponseEntity<MemberElection> health() {
