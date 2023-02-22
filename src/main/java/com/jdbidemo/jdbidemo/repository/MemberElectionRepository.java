@@ -21,4 +21,8 @@ public interface MemberElectionRepository {
     @GetGeneratedKeys("mel_num")
     Long save(@BindBean MemberElection memberElection);
 
+    @SqlUpdate("UPDATE member_election SET mel_pmc_num=:payMemberCompanyId, mel_ed_num=:electionDimId, mel_pu_num=:subgroupId WHERE mel_pmc_num=:payMemberCompanyId AND mel_ed_num=:electionDimId")
+    @GetGeneratedKeys
+    Long update(@BindBean MemberElection memberElection);
+
 }
